@@ -1473,3 +1473,87 @@ details p {
     line-height: 1.35;
   }
 }
+
+/* =========================================================
+   Hero responsive correction v9
+   - 700px〜960px をタブレット扱いにして、スマホ用の全幅ボタンを打ち消す
+   - 699px以下だけスマホ専用背景画像と縦積みボタンを適用
+   ========================================================= */
+@media (min-width: 700px) and (max-width: 960px) {
+  .hero {
+    min-height: calc(100svh - var(--header-height));
+    background:
+      linear-gradient(90deg, rgba(255, 252, 246, 0.88) 0%, rgba(255, 252, 246, 0.70) 38%, rgba(255, 252, 246, 0.20) 64%, rgba(255, 252, 246, 0.04) 100%),
+      url("../images/hero-watercolor.png") center center / cover no-repeat;
+  }
+
+  .hero-inner {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    min-height: calc(100svh - var(--header-height));
+    padding-block: 54px 42px !important;
+  }
+
+  .hero-copy {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: min(100%, 560px) !important;
+    max-width: 560px !important;
+  }
+
+  .hero-actions {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    justify-self: start !important;
+    width: auto !important;
+    max-width: none !important;
+    gap: 18px !important;
+    margin-top: 34px !important;
+    padding: 0 !important;
+  }
+
+  .hero-actions .button {
+    flex: 0 0 230px !important;
+    width: 230px !important;
+    min-width: 230px !important;
+    max-width: 230px !important;
+    min-height: 50px !important;
+    padding: 11px 22px !important;
+    white-space: nowrap !important;
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+  }
+}
+
+@media (max-width: 699px) {
+  .hero {
+    min-height: calc(100svh - var(--header-height));
+    background:
+      linear-gradient(180deg, rgba(255, 252, 246, 0.98) 0%, rgba(255, 252, 246, 0.94) 42%, rgba(255, 252, 246, 0.70) 68%, rgba(255, 252, 246, 0.40) 100%),
+      url("../images/hero-watercolor-sp.png") center bottom / cover no-repeat;
+  }
+
+  .hero-inner {
+    min-height: calc(100svh - var(--header-height));
+  }
+
+  .hero-actions {
+    width: min(100%, 560px) !important;
+    max-width: 560px !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+
+  .hero-actions .button {
+    flex: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    white-space: nowrap !important;
+  }
+}
