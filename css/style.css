@@ -1580,3 +1580,26 @@ details p {
       url("../images/hero-watercolor-sp.png") center bottom / cover no-repeat !important;
   }
 }
+
+/* =========================================================
+   Hero mobile background visibility fix v11
+   - スマホ版背景画像が薄く見えすぎないよう、白い被せを弱める
+   - 699px以下だけスマホ専用背景画像を明示指定
+   - タブレット以上は従来どおりPC版背景画像を使用
+   ========================================================= */
+@media (max-width: 699px) {
+  .hero {
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(255, 252, 246, 0.94) 0%,
+        rgba(255, 252, 246, 0.84) 34%,
+        rgba(255, 252, 246, 0.34) 58%,
+        rgba(255, 252, 246, 0.06) 100%
+      ),
+      url("../images/hero-watercolor-sp.png") !important;
+    background-position: center bottom !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+  }
+}
