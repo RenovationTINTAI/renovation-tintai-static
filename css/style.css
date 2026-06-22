@@ -1173,3 +1173,198 @@ details p {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* =========================================================
+   Hero layout reset v6
+   - PC版ファーストビューをGoogle Sites版の配置に近づける
+   - 見出しは明示的に2行固定
+   - ボタンはコピーとは分離して右下寄りに固定
+   ========================================================= */
+@media (min-width: 961px) {
+  .hero {
+    min-height: clamp(540px, 72svh, 660px);
+    background:
+      linear-gradient(90deg, rgba(255, 252, 246, 0.86) 0%, rgba(255, 252, 246, 0.68) 34%, rgba(255, 252, 246, 0.18) 58%, rgba(255, 252, 246, 0.02) 100%),
+      url("../images/hero-watercolor.png") center center / cover no-repeat;
+  }
+
+  .hero::after {
+    height: 86px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0));
+  }
+
+  .hero-inner {
+    position: relative;
+    min-height: inherit;
+    display: block;
+    padding-block: 0;
+  }
+
+  .hero-copy {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 49%;
+    transform: translateY(-50%);
+    width: 560px;
+    max-width: 560px;
+  }
+
+  .hero-title {
+    margin: 0 0 34px;
+    color: #15120f;
+    font-size: clamp(42px, 4.05vw, 58px);
+    line-height: 1.42;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .hero-title-line {
+    display: block;
+    width: max-content;
+    max-width: none;
+    white-space: nowrap;
+    word-break: keep-all;
+    overflow-wrap: normal;
+  }
+
+  .hero-lead {
+    width: 520px;
+    max-width: 520px;
+    margin: 0;
+    color: var(--color-text);
+    font-size: clamp(16px, 1.2vw, 18px);
+    line-height: 1.85;
+    font-weight: 650;
+    letter-spacing: 0.005em;
+  }
+
+  .hero-actions {
+    position: absolute;
+    z-index: 3;
+    left: 47%;
+    right: auto;
+    bottom: clamp(64px, 9.2vh, 86px);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 26px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero-actions .button {
+    width: 230px;
+    min-width: 230px;
+    min-height: 48px;
+    padding: 11px 22px;
+    white-space: nowrap;
+    font-size: 15px;
+    line-height: 1.35;
+    font-weight: 750;
+  }
+}
+
+@media (min-width: 961px) and (max-width: 1180px) {
+  .hero {
+    min-height: clamp(500px, 68svh, 620px);
+    background-position: center center;
+  }
+
+  .hero-copy {
+    width: 510px;
+    max-width: 510px;
+  }
+
+  .hero-title {
+    font-size: clamp(38px, 4.1vw, 48px);
+    line-height: 1.42;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-lead {
+    width: 500px;
+    max-width: 500px;
+    font-size: 16px;
+  }
+
+  .hero-actions {
+    left: 47%;
+    gap: 20px;
+    bottom: 64px;
+  }
+
+  .hero-actions .button {
+    width: 215px;
+    min-width: 215px;
+    padding-inline: 18px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 961px) and (max-width: 1030px) {
+  .hero-copy {
+    width: 490px;
+    max-width: 490px;
+  }
+
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .hero-lead {
+    width: 470px;
+    max-width: 470px;
+  }
+
+  .hero-actions {
+    left: 46%;
+    gap: 18px;
+  }
+
+  .hero-actions .button {
+    width: 205px;
+    min-width: 205px;
+  }
+}
+
+@media (max-width: 960px) {
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: calc(100svh - var(--header-height));
+    padding-block: 54px 42px;
+  }
+
+  .hero-copy {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: min(100%, 560px);
+    max-width: 560px;
+  }
+
+  .hero-title-line {
+    display: block;
+    width: auto;
+    white-space: nowrap;
+    word-break: keep-all;
+  }
+
+  .hero-actions {
+    position: static;
+    display: flex;
+    width: min(100%, 560px);
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 32px;
+    padding: 0;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+    min-width: 0;
+    white-space: normal;
+  }
+}
