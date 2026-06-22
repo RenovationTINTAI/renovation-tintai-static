@@ -1584,3 +1584,129 @@ details p {
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.42);
   }
 }
+
+
+/* =========================================================
+   Final adjustment v13
+   - Hero title navy color on PC / tablet / smartphone
+   - Problem cards rebuilt with CSS; images are illustration only
+   - Tablet keeps 2-column problem layout
+   ========================================================= */
+
+.hero-title {
+  color: #073763;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(22px, 2.4vw, 30px);
+}
+
+.problem-card {
+  display: grid;
+  grid-template-columns: minmax(150px, 34%) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(20px, 2.3vw, 34px);
+  min-height: clamp(210px, 18vw, 270px);
+  padding: clamp(22px, 2.6vw, 34px);
+  border: 1px solid rgba(234, 223, 205, 0.88);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow-card);
+}
+
+.problem-illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.problem-illustration img {
+  width: min(100%, 230px);
+  height: auto;
+}
+
+.problem-card p {
+  margin: 0;
+  color: #073763;
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 1.55;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+/* 既存の画像カード指定が残っていても影響しないように無効化 */
+.problem-image-card {
+  display: none;
+}
+
+/* Tablet: PCと同じ2列。ただし中身は少し詰める */
+@media (min-width: 700px) and (max-width: 960px) {
+  .problem-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    max-width: none !important;
+    margin-inline: 0 !important;
+    gap: 22px !important;
+  }
+
+  .problem-card {
+    grid-template-columns: 38% 1fr;
+    min-height: 190px;
+    padding: 22px;
+    gap: 18px;
+    border-radius: 24px;
+  }
+
+  .problem-illustration img {
+    width: min(100%, 180px);
+  }
+
+  .problem-card p {
+    font-size: clamp(18px, 2.3vw, 22px);
+    line-height: 1.55;
+  }
+}
+
+/* Smartphone: 1列・横長カード */
+@media (max-width: 699px) {
+  .problem-grid {
+    grid-template-columns: 1fr !important;
+    max-width: none !important;
+    gap: 22px;
+  }
+
+  .problem-card {
+    grid-template-columns: minmax(96px, 34%) 1fr;
+    min-height: 144px;
+    padding: 18px 16px;
+    gap: 14px;
+    border-radius: 20px;
+  }
+
+  .problem-illustration img {
+    width: min(100%, 128px);
+  }
+
+  .problem-card p {
+    font-size: clamp(15.5px, 4.4vw, 18px);
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+}
+
+@media (max-width: 360px) {
+  .problem-card {
+    grid-template-columns: 92px 1fr;
+    padding: 16px 14px;
+    gap: 12px;
+  }
+
+  .problem-illustration img {
+    width: 108px;
+  }
+
+  .problem-card p {
+    font-size: 15px;
+  }
+}
