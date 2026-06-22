@@ -3,12 +3,9 @@
 :root {
   --color-brand: #6f1608;
   --color-brand-dark: #4a0f07;
-  --color-brand-soft: #a24b28;
   --color-blue: #174a8b;
   --color-blue-dark: #0f3564;
-  --color-blue-soft: #e9f1fb;
   --color-cream: #fbf6ec;
-  --color-cream-strong: #f1e2c9;
   --color-paper: #fffdf8;
   --color-text: #15120f;
   --color-muted: #625d55;
@@ -256,32 +253,23 @@ select {
 /* Hero */
 .hero {
   position: relative;
-  min-height: clamp(680px, 78svh, 860px);
+  min-height: clamp(560px, 68svh, 720px);
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(circle at 84% 22%, rgba(204, 232, 191, 0.46), transparent 28%),
-    linear-gradient(135deg, #fffaf0 0%, #fffdf8 42%, #f7ead8 100%);
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background:
-    linear-gradient(90deg, rgba(255, 250, 240, 0.97) 0%, rgba(255, 250, 240, 0.91) 36%, rgba(255, 250, 240, 0.58) 62%, rgba(255, 250, 240, 0.20) 100%);
+    radial-gradient(circle at 84% 24%, rgba(204, 232, 191, 0.38), transparent 28%),
+    linear-gradient(135deg, #fffaf0 0%, #fffdf8 48%, #f7ead8 100%);
 }
 
 .hero::before {
   content: "";
   position: absolute;
   right: max(-90px, calc((100vw - var(--container)) / 2 - 150px));
-  top: 92px;
-  width: clamp(420px, 47vw, 720px);
+  top: 74px;
+  width: clamp(360px, 42vw, 620px);
   aspect-ratio: 1 / 1;
   border-radius: 42% 58% 48% 52%;
-  background: rgba(255, 255, 255, 0.55);
-  filter: blur(0.2px);
+  background: rgba(255, 255, 255, 0.52);
   z-index: -1;
 }
 
@@ -289,7 +277,7 @@ select {
   content: "";
   position: absolute;
   inset: auto 0 0;
-  height: 140px;
+  height: 110px;
   pointer-events: none;
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
   z-index: -1;
@@ -298,28 +286,15 @@ select {
 .hero-inner {
   min-height: inherit;
   display: grid;
-  grid-template-columns: minmax(0, 560px) minmax(360px, 1fr);
+  grid-template-columns: minmax(0, 560px) minmax(340px, 0.92fr);
   align-items: center;
   gap: 56px;
-  padding-block: 78px 68px;
+  padding-block: 62px 58px;
 }
 
 .hero-copy {
   position: relative;
   z-index: 2;
-}
-
-.hero-eyebrow {
-  width: fit-content;
-  margin: 0 0 18px;
-  padding: 8px 15px;
-  color: var(--color-brand);
-  font-size: 14px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  border: 1px solid rgba(111, 22, 8, 0.16);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.74);
 }
 
 .hero-title {
@@ -340,37 +315,6 @@ select {
   font-weight: 750;
 }
 
-.hero-points {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 30px;
-}
-
-.hero-point {
-  padding: 16px 14px;
-  border: 1px solid rgba(111, 22, 8, 0.12);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 10px 28px rgba(55, 35, 18, 0.07);
-}
-
-.hero-point span {
-  display: block;
-  margin-bottom: 5px;
-  color: var(--color-brown);
-  font-size: 12px;
-  line-height: 1.3;
-  font-weight: 950;
-  letter-spacing: 0.12em;
-}
-
-.hero-point strong {
-  display: block;
-  font-size: 15px;
-  line-height: 1.45;
-}
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -384,36 +328,9 @@ select {
 }
 
 .hero-visual img {
-  width: min(100%, 600px);
+  width: min(100%, 560px);
   margin-inline: auto;
-  filter: drop-shadow(0 26px 34px rgba(55, 35, 18, 0.12));
-}
-
-.hero-badge {
-  position: absolute;
-  left: 0;
-  bottom: 10%;
-  min-width: 180px;
-  padding: 18px 20px;
-  color: #ffffff;
-  border-radius: 22px;
-  background: rgba(111, 22, 8, 0.94);
-  box-shadow: var(--shadow-card);
-}
-
-.hero-badge span {
-  display: block;
-  margin-bottom: 6px;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 0.14em;
-}
-
-.hero-badge strong {
-  display: block;
-  font-size: 20px;
-  line-height: 1.45;
+  filter: drop-shadow(0 22px 30px rgba(55, 35, 18, 0.10));
 }
 
 /* Sections */
@@ -473,65 +390,23 @@ select {
   background: linear-gradient(180deg, #ffffff 0%, var(--color-cream) 100%);
 }
 
-.problem-layout {
+.problem-grid {
   display: grid;
-  grid-template-columns: 1.03fr 0.97fr;
-  gap: 42px;
-  align-items: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
 }
 
-.problem-visual {
+.problem-image-card {
   margin: 0;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
+  border-radius: 28px;
   background: #ffffff;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
 }
 
-.problem-visual img {
+.problem-image-card img {
   width: 100%;
   height: auto;
-}
-
-.problem-list {
-  display: grid;
-  gap: 18px;
-}
-
-.problem-card {
-  position: relative;
-  padding: 26px 28px 24px 76px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: var(--shadow-card);
-}
-
-.card-number {
-  position: absolute;
-  left: 24px;
-  top: 28px;
-  display: inline-grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 950;
-  border-radius: 50%;
-  background: var(--color-brand);
-}
-
-.problem-card h3 {
-  margin: 0 0 8px;
-  font-size: 20px;
-  line-height: 1.55;
-}
-
-.problem-card p {
-  margin: 0;
-  color: var(--color-muted);
-  font-weight: 650;
 }
 
 /* Solution */
@@ -559,17 +434,18 @@ select {
   border-color: rgba(111, 22, 8, 0.18);
 }
 
-.solution-icon {
-  display: grid;
-  place-items: center;
-  width: 52px;
-  height: 52px;
-  margin-bottom: 20px;
+.solution-number {
+  width: fit-content;
+  margin: 0 0 22px;
+  padding: 5px 13px;
   color: var(--color-brand);
-  font-size: 22px;
+  font-size: 13px;
+  line-height: 1.3;
   font-weight: 950;
-  border-radius: 17px;
-  background: #f6e5cd;
+  letter-spacing: 0.12em;
+  border: 1px solid rgba(111, 22, 8, 0.16);
+  border-radius: 999px;
+  background: #fffaf0;
 }
 
 .solution-card h3 {
@@ -578,7 +454,7 @@ select {
   line-height: 1.55;
 }
 
-.solution-card p {
+.solution-card p:not(.solution-number) {
   margin: 0;
   color: var(--color-muted);
   font-weight: 650;
@@ -1033,7 +909,6 @@ details p {
   }
 
   .hero-inner,
-  .problem-layout,
   .service-grid,
   .target-inner,
   .trust-grid,
@@ -1052,6 +927,12 @@ details p {
 
   .hero-visual {
     max-width: 620px;
+    margin-inline: auto;
+  }
+
+  .problem-grid {
+    grid-template-columns: 1fr;
+    max-width: 780px;
     margin-inline: auto;
   }
 
@@ -1143,11 +1024,6 @@ details p {
     padding-block: 54px 42px;
   }
 
-  .hero-eyebrow {
-    margin-bottom: 16px;
-    font-size: 12px;
-  }
-
   .hero-title {
     margin-bottom: 22px;
     font-size: clamp(36px, 10.4vw, 46px);
@@ -1157,11 +1033,6 @@ details p {
   .hero-lead {
     font-size: 16px;
     line-height: 1.85;
-  }
-
-  .hero-points {
-    grid-template-columns: 1fr;
-    margin-top: 26px;
   }
 
   .hero-actions {
@@ -1195,19 +1066,8 @@ details p {
     font-size: 15.5px;
   }
 
-  .problem-card {
-    padding: 24px 22px 22px 66px;
-  }
-
-  .card-number {
-    left: 20px;
-    top: 25px;
-    width: 34px;
-    height: 34px;
-  }
-
-  .problem-card h3 {
-    font-size: 18px;
+  .problem-image-card {
+    border-radius: 20px;
   }
 
   .solution-grid,
