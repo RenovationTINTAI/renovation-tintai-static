@@ -1046,7 +1046,7 @@ details p {
   .hero {
     background:
       linear-gradient(180deg, rgba(255, 250, 240, 0.98) 0%, rgba(255, 250, 240, 0.92) 48%, rgba(255, 250, 240, 0.72) 100%),
-      url("../images/hero-watercolor.png") center bottom / cover no-repeat;
+      url("../images/hero-watercolor-sp.png") center bottom / cover no-repeat;
   }
 
   .hero-inner {
@@ -1555,5 +1555,28 @@ details p {
     min-width: 0 !important;
     max-width: none !important;
     white-space: nowrap !important;
+  }
+}
+
+
+/* =========================================================
+   Hero background source fix v10
+   - 700px〜960pxはタブレット扱いでPC背景画像を使用
+   - 699px以下だけスマホ専用背景画像を使用
+   - 既存の .hero 背景指定との競合を最後の宣言で明示的に上書き
+   ========================================================= */
+@media (min-width: 700px) and (max-width: 960px) {
+  .hero {
+    background:
+      linear-gradient(90deg, rgba(255, 252, 246, 0.88) 0%, rgba(255, 252, 246, 0.70) 38%, rgba(255, 252, 246, 0.20) 64%, rgba(255, 252, 246, 0.04) 100%),
+      url("../images/hero-watercolor.png") center center / cover no-repeat !important;
+  }
+}
+
+@media (max-width: 699px) {
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(255, 252, 246, 0.98) 0%, rgba(255, 252, 246, 0.94) 38%, rgba(255, 252, 246, 0.72) 64%, rgba(255, 252, 246, 0.40) 100%),
+      url("../images/hero-watercolor-sp.png") center bottom / cover no-repeat !important;
   }
 }
