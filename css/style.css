@@ -1368,3 +1368,79 @@ details p {
     white-space: normal;
   }
 }
+
+/* =========================================================
+   Hero fine tune v7
+   - 見出しの2行間を詰める
+   - 見出し改行は <br> ではなく span で制御
+   - PC版ボタン文言を1行固定
+   ========================================================= */
+.hero-title {
+  line-height: 1.16;
+}
+
+.hero-title-line {
+  display: block;
+  width: max-content;
+  max-width: none;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
+.hero-title-line + .hero-title-line {
+  margin-top: 0.08em;
+}
+
+.hero-actions .button {
+  white-space: nowrap;
+}
+
+@media (min-width: 961px) {
+  .hero-title {
+    margin-bottom: 32px;
+    font-size: clamp(42px, 3.85vw, 56px);
+    line-height: 1.16;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .hero-copy {
+    width: 560px;
+    max-width: 560px;
+  }
+
+  .hero-lead {
+    margin-top: 0;
+  }
+
+  .hero-actions .button {
+    width: 230px;
+    min-width: 230px;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 961px) and (max-width: 1180px) {
+  .hero-title {
+    font-size: clamp(38px, 4vw, 47px);
+    line-height: 1.16;
+  }
+
+  .hero-copy {
+    width: 520px;
+    max-width: 520px;
+  }
+
+  .hero-actions .button {
+    width: 215px;
+    min-width: 215px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 960px) {
+  .hero-title {
+    line-height: 1.2;
+  }
+}
