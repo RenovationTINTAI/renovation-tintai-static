@@ -3,6 +3,14 @@
   const nav = document.querySelector("[data-global-nav]");
   const header = document.querySelector("[data-header]");
 
+  const setHeaderHeight = () => {
+    if (!header) return;
+    document.documentElement.style.setProperty("--header-height", `${header.offsetHeight}px`);
+  };
+
+  setHeaderHeight();
+  window.addEventListener("resize", setHeaderHeight, { passive: true });
+
   if (!navToggle || !nav) return;
 
   const closeNav = () => {
@@ -38,12 +46,4 @@
       closeNav();
     }
   });
-
-  const setHeaderHeight = () => {
-    if (!header) return;
-    document.documentElement.style.setProperty("--header-height", `${header.offsetHeight}px`);
-  };
-
-  setHeaderHeight();
-  window.addEventListener("resize", setHeaderHeight, { passive: true });
 })();
