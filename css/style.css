@@ -1045,7 +1045,7 @@ details p {
 
   .hero {
     background:
-      linear-gradient(180deg, rgba(255, 250, 240, 0.98) 0%, rgba(255, 250, 240, 0.92) 48%, rgba(255, 250, 240, 0.72) 100%),
+      linear-gradient(180deg, rgba(255, 252, 246, 0.92) 0%, rgba(255, 252, 246, 0.76) 28%, rgba(255, 252, 246, 0.28) 48%, rgba(255, 252, 246, 0.06) 70%, rgba(255, 252, 246, 0) 100%),
       url("../images/hero-watercolor-sp.png") center bottom / cover no-repeat;
   }
 
@@ -1534,7 +1534,7 @@ details p {
   .hero {
     min-height: calc(100svh - var(--header-height));
     background:
-      linear-gradient(180deg, rgba(255, 252, 246, 0.98) 0%, rgba(255, 252, 246, 0.94) 42%, rgba(255, 252, 246, 0.70) 68%, rgba(255, 252, 246, 0.40) 100%),
+      linear-gradient(180deg, rgba(255, 252, 246, 0.92) 0%, rgba(255, 252, 246, 0.76) 28%, rgba(255, 252, 246, 0.28) 48%, rgba(255, 252, 246, 0.06) 70%, rgba(255, 252, 246, 0) 100%),
       url("../images/hero-watercolor-sp.png") center bottom / cover no-repeat;
   }
 
@@ -1558,12 +1558,11 @@ details p {
   }
 }
 
-
 /* =========================================================
-   Hero background source fix v10
-   - 700px〜960pxはタブレット扱いでPC背景画像を使用
+   Hero mobile/tablet final fix v12
+   - 700px〜960pxはPC版背景画像と横並びボタンを維持
    - 699px以下だけスマホ専用背景画像を使用
-   - 既存の .hero 背景指定との競合を最後の宣言で明示的に上書き
+   - スマホでは白い被せを弱め、背景画像が見えるようにする
    ========================================================= */
 @media (min-width: 700px) and (max-width: 960px) {
   .hero {
@@ -1576,30 +1575,12 @@ details p {
 @media (max-width: 699px) {
   .hero {
     background:
-      linear-gradient(180deg, rgba(255, 252, 246, 0.98) 0%, rgba(255, 252, 246, 0.94) 38%, rgba(255, 252, 246, 0.72) 64%, rgba(255, 252, 246, 0.40) 100%),
+      linear-gradient(180deg, rgba(255, 252, 246, 0.92) 0%, rgba(255, 252, 246, 0.76) 28%, rgba(255, 252, 246, 0.28) 48%, rgba(255, 252, 246, 0.06) 70%, rgba(255, 252, 246, 0) 100%),
       url("../images/hero-watercolor-sp.png") center bottom / cover no-repeat !important;
   }
-}
 
-/* =========================================================
-   Hero mobile background visibility fix v11
-   - スマホ版背景画像が薄く見えすぎないよう、白い被せを弱める
-   - 699px以下だけスマホ専用背景画像を明示指定
-   - タブレット以上は従来どおりPC版背景画像を使用
-   ========================================================= */
-@media (max-width: 699px) {
-  .hero {
-    background-image:
-      linear-gradient(
-        180deg,
-        rgba(255, 252, 246, 0.94) 0%,
-        rgba(255, 252, 246, 0.84) 34%,
-        rgba(255, 252, 246, 0.34) 58%,
-        rgba(255, 252, 246, 0.06) 100%
-      ),
-      url("../images/hero-watercolor-sp.png") !important;
-    background-position: center bottom !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
+  .hero-title {
+    color: #073763;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.42);
   }
 }
