@@ -1975,3 +1975,50 @@ details p {
     font-size: 19px;
   }
 }
+
+/* =========================================================
+   Final adjustment v16
+   - Limit the soft teal heading color to the first-view title only
+   - Restore section titles and card headings to dark navy for readability
+   ========================================================= */
+:root {
+  --color-hero-heading: #5FAFB7;
+  --color-section-heading: #073763;
+}
+
+.hero-title {
+  color: var(--color-hero-heading);
+}
+
+.section-title,
+.solution-card h3,
+.problem-card p,
+.flow-card h3,
+.target-card h3,
+.trust-card h3,
+.faq-heading .section-title,
+.cta-title {
+  color: var(--color-section-heading);
+}
+
+/* Keep small English labels warm brown, not teal. */
+.section-kicker {
+  color: var(--color-brown);
+}
+
+@media (max-width: 699px) {
+  .hero-title {
+    color: var(--color-hero-heading);
+  }
+
+  .section-title,
+  .solution-card h3,
+  .problem-card p,
+  .flow-card h3,
+  .target-card h3,
+  .trust-card h3,
+  .faq-heading .section-title,
+  .cta-title {
+    color: var(--color-section-heading);
+  }
+}
