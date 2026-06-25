@@ -2038,8 +2038,10 @@ details p {
 }
 
 /* =========================================================
-   Final adjustment v18
+   Final adjustment v19
    - Hide the logo in the embedded top-page header
+   - Keep the PC/tablet header navigation aligned to the right
+   - Keep enough header height after removing the logo
    - Hide the embedded top-page header on smartphone widths
    ========================================================= */
 .site-header .site-logo {
@@ -2047,12 +2049,27 @@ details p {
 }
 
 @media (min-width: 768px) {
+  :root {
+    --header-height: 78px;
+  }
+
+  .site-header {
+    min-height: var(--header-height);
+  }
+
   .site-header .header-inner {
-    justify-content: center;
+    min-height: var(--header-height);
+    justify-content: flex-end;
   }
 
   .site-header .global-nav {
-    justify-content: center;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .site-header .global-nav .nav-cta {
+    padding-block: 8px;
+    line-height: 1.35;
   }
 }
 
