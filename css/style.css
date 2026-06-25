@@ -2036,3 +2036,42 @@ details p {
 .cta-section .section-kicker {
   color: #f6d8b0;
 }
+
+/* =========================================================
+   Final adjustment v18
+   - Hide the logo in the embedded top-page header
+   - Hide the embedded top-page header on smartphone widths
+   ========================================================= */
+.site-header .site-logo {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .site-header .header-inner {
+    justify-content: center;
+  }
+
+  .site-header .global-nav {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 767px) {
+  .site-header .header-inner {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 699px) {
+  :root {
+    --header-height: 0px;
+  }
+
+  .site-header {
+    display: none;
+  }
+
+  html {
+    scroll-padding-top: 22px;
+  }
+}
