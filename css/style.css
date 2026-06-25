@@ -2022,3 +2022,17 @@ details p {
     color: var(--color-section-heading);
   }
 }
+
+
+/* =========================================================
+   Final adjustment v17
+   - CONTACT section title color fixed for dark brown background
+   - Keep the CTA title bright while other section titles remain navy
+   ========================================================= */
+.cta-section .cta-title {
+  color: #ffffff;
+}
+
+.cta-section .section-kicker {
+  color: #f6d8b0;
+}
